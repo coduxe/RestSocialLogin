@@ -4,4 +4,5 @@ Route::group(['prefix' => 'auth', 'middleware' => ['web'], 'namespace' => 'Modul
 {
     Route::post('/', 'RestSocialLoginController@authenticate');
     Route::get('/callback', 'RestSocialLoginController@handleProviderCallback');
+    Route::post('/register', 'RestSocialLoginController@register');
 });
