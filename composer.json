@@ -1,0 +1,19 @@
+{
+  "name": "coduxe/sociallogin",
+  "description": "",
+  "authors": [
+    {
+      "name": "Coduxe",
+      "email": "info@coduxe.com"
+    }
+  ],
+  "require": {
+    "laravel/socialite": "^2.0",
+    "tymon/jwt-auth": "0.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\RestSocialLogin\\": ""
+    }
+  }
+}

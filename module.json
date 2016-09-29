@@ -1,0 +1,21 @@
+{
+    "name": "RestSocialLogin",
+    "alias": "sociallogin",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\RestSocialLogin\\Providers\\RestSocialLoginServiceProvider",
+        "Laravel\\Socialite\\SocialiteServiceProvider",
+        "Tymon\\JWTAuth\\Providers\\JWTAuthServiceProvider"
+    ],
+    "aliases":{
+        "Socialite": "Laravel\\Socialite\\Facades\\Socialite",
+        "JWTAuth": "Tymon\\JWTAuth\\Facades\\JWTAuth",
+        "JWTFactory": "Tymon\\JWTAuth\\Facades\\JWTFactory"
+    },
+    "files": [
+        "start.php"
+    ]
+}
