@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\RestSocialLogin\Http\Requests\RestSocialLoginRequest;
+use Modules\RestSocialLogin\Http\Requests\RegisterUserRequest;
 use Modules\RestSocialLogin\Entities\User;
 use Socialite;
 use Lang;
@@ -55,5 +56,22 @@ class RestSocialLoginController extends Controller
     }
 
     return response()->json(['error' => Lang::get('sociallogin::validation.invalid_credentials')], 400);
+  }
+
+  /**
+  * Register new User.
+  * @param Request
+  * @return Response
+  */
+  public function register(RegisterUserRequest $request)
+  {
+    if (!User::where('email', '=', $request->email)->get()->isEmpty()) {
+      return response()->json(['error' => Lang::get('sociallogin::validation.already_registered')], 400);
+    }
+
+    $request->password = bcrypt($request->password);
+    $user = User::create($request->only('email', 'password'));
+
+    return response()->json(['token' => $user->getToken(), 'user' => $user]);
   }
 }
