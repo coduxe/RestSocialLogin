@@ -69,7 +69,6 @@ class RestSocialLoginController extends Controller
       return response()->json(['error' => Lang::get('sociallogin::validation.already_registered')], 400);
     }
 
-    $request->password = bcrypt($request->password);
     $user = User::create($request->only('email', 'password'));
 
     return response()->json(['token' => $user->getToken(), 'user' => $user]);
