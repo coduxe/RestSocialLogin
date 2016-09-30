@@ -6,4 +6,5 @@ Route::group(['prefix' => 'auth', 'middleware' => StartSession::class, 'namespac
 {
     Route::post('/', 'RestSocialLoginController@authenticate');
     Route::get('/callback', 'RestSocialLoginController@handleProviderCallback');
+    Route::post('/register', 'RestSocialLoginController@register');
 });

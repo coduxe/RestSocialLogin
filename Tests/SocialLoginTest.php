@@ -2,7 +2,7 @@
 
 use Modules\RestSocialLogin\Tests\TestCase;
 
-class ExampleTest extends TestCase
+class SocialLoginTest extends TestCase
 {
 
   public function testInteractsWithFacebook()

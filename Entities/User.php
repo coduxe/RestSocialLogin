@@ -33,4 +33,15 @@ class User extends Authenticatable
     return JWTAuth::fromUser($this);
   }
 
+  /**
+   * Encrypt the users password on create.
+   *
+   * @param  string  $value
+   * @return void
+   */
+  public function setPasswordAttribute($value)
+  {
+      $this->attributes['password'] = bcrypt($value);
+  }
+
 }
