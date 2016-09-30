@@ -13,10 +13,10 @@ class RegisterUserTest extends TestCase
   {
     $params = ['email' => 'paco@email.com', 'password' => 'secret'];
 
-    $this->post('/auth/register', $params)->dump();
+    $this->post('/auth/register', $params);
 
     $this->assertResponseStatus(200);
-    $this->seeInDatabase('users', ['email' => $params->email]);
+    $this->seeInDatabase('users', ['email' => $params['email']]);
     $this->seeJsonStructure(['token', 'user']);
   }
 }
