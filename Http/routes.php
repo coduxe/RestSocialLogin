@@ -1,6 +1,8 @@
 <?php
 
-Route::group(['prefix' => 'auth', 'middleware' => ['web'], 'namespace' => 'Modules\RestSocialLogin\Http\Controllers'], function()
+use Illuminate\Session\Middleware\StartSession;
+
+Route::group(['prefix' => 'auth', 'middleware' => StartSession::class, 'namespace' => 'Modules\RestSocialLogin\Http\Controllers'], function()
 {
     Route::post('/', 'RestSocialLoginController@authenticate');
     Route::get('/callback', 'RestSocialLoginController@handleProviderCallback');
