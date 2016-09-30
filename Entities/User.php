@@ -34,11 +34,11 @@ class User extends Authenticatable
   }
 
   /**
-       * Set the user's first name.
-       *
-       * @param  string  $value
-       * @return void
-       */
+   * Encrypt the users password on create.
+   *
+   * @param  string  $value
+   * @return void
+   */
   public function setPasswordAttribute($value)
   {
       $this->attributes['password'] = bcrypt($value);
